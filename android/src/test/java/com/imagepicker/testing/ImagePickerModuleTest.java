@@ -83,18 +83,6 @@ public class ImagePickerModuleTest
         activity = null;
     }
 
-
-    @Test
-    public void testCancelTakingPhoto()
-    {
-        final SampleCallback callback = new SampleCallback();
-        module.setCallback(callback);
-        module.setCameraCaptureUri(Uri.fromFile(new File("")));
-        module.onActivityResult(activity, ImagePickerModule.REQUEST_LAUNCH_IMAGE_CAPTURE, Activity.RESULT_CANCELED, null);
-        assertFalse("Camera's been launched", callback.hasError());
-        assertTrue("User's cancelled of taking a photo", callback.didCancel());
-    }
-
     private void nativeMock()
     {
         PowerMockito.mockStatic(Arguments.class);
